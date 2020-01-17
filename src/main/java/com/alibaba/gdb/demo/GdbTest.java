@@ -38,9 +38,10 @@ public class GdbTest {
 			Client client = Cluster.build(new File(yaml)).create().connect();
 			client.init();
 
-			String dsl = "g.addV(yourlabel).property(propertyKey, propertyValue)";
+			String dsl = "g.addV(yourLabel).property(id, yourId).property(propertyKey, propertyValue)";
 			Map<String, Object> parameters = new HashMap<>();
-			parameters.put("yourlabel", "area");
+			parameters.put("yourLabel", "area");
+			parameters.put("yourId", "loc1125");
 			parameters.put("propertyKey", "wherence");
 			parameters.put("propertyValue", "shenzheng");
 			ResultSet results = client.submit(dsl, parameters);
